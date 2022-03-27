@@ -17,12 +17,7 @@ var getRepoName = function() {
         // if no repo was given, redirect to the homepage
         document.location.replace("./index.html");
       }
-
-    getRepoIssues(repoName);
-    repoNameEl.textContent = repoName;
 }
-getRepoName();
-
 
 
 // create getRepoIssues() function that will take in repo name as a parameter
@@ -46,13 +41,9 @@ var getRepoIssues = function(repo) {
         });
         } else {
             //if not successful, redirect to homepage
-            document.location.replace("./index.html")'
-            '
-            console.log(repo);
-            alert("There was a problem with your request!");
+            document.location.replace("./index.html");
         }
-    })
-
+    });
 };
 
 //Turning GitHub issue data into DOM elements
@@ -89,9 +80,10 @@ var displayIssues = function(issues) {
         }
         //append to container
         issueEl.appendChild(typeEl);
-    }
-    //append the <a> element onto the actual page
+
+        //append the <a> element onto the actual page
     issueContainerEl.appendChild(issueEl);
+    }
 };
 
 var displayWarning = function(repo) {
@@ -107,5 +99,5 @@ var displayWarning = function(repo) {
     limitWarningEl.appendChild(linkEl);
 };
 
-getRepoIssues("facebook/react");  //testing out different repos
+getRepoName();
 
